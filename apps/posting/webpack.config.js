@@ -61,6 +61,7 @@ module.exports = (_, argv) => ({
   },
 
   plugins: [
+    new Dotenv(),
     new ModuleFederationPlugin({
       name: "posting",
       filename: "remoteEntry.js",
@@ -89,6 +90,5 @@ module.exports = (_, argv) => ({
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv(),
   ],
 });

@@ -41,14 +41,14 @@
       }
     },
     {
-      "id": 5,
-      "message": "💗Presto Labs Year-end Party 2023💗<br>지난주 Presto Labs에서 year-end party 시간을 가졌습니다.<br>올 한해 동안 정말 많은 것들을 이뤄낸 우리 팀 동료들이 자랑스러웠네요.<br><br>함께 이루어낸 성취를 기뻐하고 기념하며, Work hard & play hard를 진심으로 보여주는 동료들 덕분에 행사 내내 웃음이 끊이질 않았습니다. <br>Presto 동료분들 올 한해 정말 수고 많으셨습니다! 덕분에 다가올 2024년도 많이 기대가 됩니다. :)<br><br>Last week, we wrapped up the year with an awesome party at Presto Labs.<br>I'm really proud of our team for all the amazing work we've done this year.<br><br>Celebrating our accomplishments together, and thanks to colleagues who truly showed the 'Work hard & play hard', the event was filled with laughter and fun moments.<br>Kudos to everyone at Presto for all the grit this year! Can't wait to see what 2024 has in store for us. Wishing everyone joyful end to the year. 🫶💌",
-      "createdAt": "2023-12-27T15:34:52.328Z",
+      "message": "test",
+      "createdAt": "2024-08-24T05:38:17.867Z",
       "author": {
-        "name": "Mark Lee",
-        "email": "2woongjae@gmail.com",
-        "picture": "https://lh3.googleusercontent.com/a/ACg8ocLQFU3l4dhf-6T83mF9ZcQ3NKDK3my_nOKuUhoIml3AkCU=s96-c"
-      }
+        "name": "Estrella Kang",
+        "picture": "https://lh3.googleusercontent.com/a/ACg8ocJjiSkOru-GVYKvBYI-RilZcbti3Wk5MgNh9eL5vWQtujwVBSw=s96-c",
+        "email": "kangactor1994@gmail.com"
+      },
+      "id": 5
     }
   ]
 }
