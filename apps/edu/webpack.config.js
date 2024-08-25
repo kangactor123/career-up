@@ -9,7 +9,7 @@ const printCompilationMessage = require("./compilation.config.js");
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3000/",
+    publicPath: "http://localhost:3002/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3000,
+    port: 3002,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
@@ -62,13 +62,12 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "shell",
+      name: "edu",
       filename: "remoteEntry.js",
-      remotes: {
-        posting: "posting@http://localhost:3001/remoteEntry.js",
-        edu: "edu@http://localhost:3002/remoteEntry.js",
+      remotes: {},
+      exposes: {
+        "./injector": "./src/injector.tsx",
       },
-      exposes: {},
       shared: {
         ...deps,
         react: {
@@ -79,10 +78,10 @@ module.exports = (_, argv) => ({
           singleton: true,
           requiredVersion: deps["react-dom"],
         },
-        "@career-up/ui-kit": {
+        "@career-up/shell-router": {
           singleton: true,
         },
-        "@career-up/shell-router": {
+        "@career-up/ui-kit": {
           singleton: true,
         },
       },
