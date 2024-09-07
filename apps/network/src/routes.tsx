@@ -3,6 +3,7 @@ import React from "react";
 import { type RouteObject } from "react-router-dom";
 import { Auth0ClientProvider } from "./providers/auth0-client-provider";
 import { RecoilRoot } from "recoil";
+import Layout from "./components/layout";
 
 export const routes: RouteObject[] = [
   {
@@ -10,7 +11,9 @@ export const routes: RouteObject[] = [
     element: (
       <RecoilRoot>
         <Auth0ClientProvider>
-          <AppRoutingManager type="app-network" />
+          <Layout>
+            <AppRoutingManager type="app-network" />
+          </Layout>
         </Auth0ClientProvider>
       </RecoilRoot>
     ),
