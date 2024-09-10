@@ -1,5 +1,5 @@
 import React from "react";
-import { center, left, wrapper } from "./layout.css";
+import { wrapper, center, left } from "./layout.css";
 import MyNetworkContainer from "../containers/my-network-container";
 
 const Layout: React.FC<React.PropsWithChildren> = ({ children }) => {

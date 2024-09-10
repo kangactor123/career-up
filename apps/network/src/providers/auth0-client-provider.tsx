@@ -1,9 +1,9 @@
-import { Auth0Client } from "@auth0/auth0-spa-js";
 import React from "react";
+import { Auth0Client } from "@auth0/auth0-spa-js";
 
 export const Auth0ClientContext = React.createContext<Auth0Client | null>(null);
 
-export const Auth0ClientProvider: React.FC<React.PropsWithChildren> = ({
+const Auth0ClientProvider: React.FC<React.PropsWithChildren> = ({
   children,
 }) => {
   const domain = process.env.REACT_APP_AUTH0_DOMAIN!;
@@ -24,3 +24,5 @@ export const Auth0ClientProvider: React.FC<React.PropsWithChildren> = ({
     </Auth0ClientContext.Provider>
   );
 };
+
+export default Auth0ClientProvider;
