@@ -1,11 +1,11 @@
 import React, { PropsWithChildren, useEffect } from "react";
 import { LayoutWrapper } from "./style";
-import useAuth0Client from "../../hooks/use-auth0-client";
 import { useSetAtom } from "jotai";
 import { coursesAtom, userAtom } from "../../atoms";
 import { getCourses, getUser } from "../../api";
 import ProfileContainer from "../../containers/profile-container";
 import MyCourseInfoContainer from "../../containers/my-course-info-container";
+import { useAuth0Client } from "@career-up/shell-router";
 
 const Layout: React.FC<PropsWithChildren> = ({ children }) => {
   const auth0Client = useAuth0Client();

@@ -1,13 +1,12 @@
 import React, { useEffect, useState } from "react";
 
-import useAuth0Client from "../../hooks/use-auth0-client";
-
 import "./style.scss";
 import { Profile } from "../../components/profile";
 import { PostType } from "../../types";
 import { createPost, getPosts, removePost } from "../../apis";
 import { Post } from "../../components/post";
 import { WritePost } from "../../components/write-post";
+import { useAuth0Client } from "@career-up/shell-router";
 
 const PageHome: React.FC = () => {
   const auth0Client = useAuth0Client();

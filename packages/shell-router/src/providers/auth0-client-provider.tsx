@@ -1,15 +1,20 @@
-import React from "react";
 import { Auth0Client } from "@auth0/auth0-spa-js";
+import React, { PropsWithChildren } from "react";
 
 export const Auth0ClientContext = React.createContext<Auth0Client | null>(null);
 
-const Auth0ClientProvider: React.FC<React.PropsWithChildren> = ({
-  children,
-}) => {
-  const domain = process.env.REACT_APP_AUTH0_DOMAIN!;
-  const clientId = process.env.REACT_APP_AUTH0_CLIENT_ID!;
-  const redirectUri = process.env.REACT_APP_AUTH0_CALLBACK_URL!;
+type Auth0ClientProviderProps = PropsWithChildren<{
+  options: {
+    domain: string;
+    clientId: string;
+    redirectUri: string;
+  };
+}>;
 
+export const Auth0ClientProvider: React.FC<Auth0ClientProviderProps> = ({
+  children,
+  options: { domain, clientId, redirectUri },
+}) => {
   const auth0Client = new Auth0Client({
     domain,
     clientId,
@@ -24,5 +29,3 @@ const Auth0ClientProvider: React.FC<React.PropsWithChildren> = ({
     </Auth0ClientContext.Provider>
   );
 };
-
-export default Auth0ClientProvider;

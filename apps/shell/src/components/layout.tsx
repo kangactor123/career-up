@@ -8,6 +8,7 @@ import {
 } from "../constants/prefix";
 import { Button, Icon } from "../../../../packages/ui-kit/dist";
 import { useAuth0 } from "@auth0/auth0-react";
+import { useShellNavigateListener } from "@career-up/shell-router";
 
 const Logo = () => (
   <svg
@@ -34,6 +35,7 @@ const Logo = () => (
 );
 
 const Layout = () => {
+  useShellNavigateListener();
   const { isAuthenticated, loginWithRedirect, logout } = useAuth0();
 
   const handleLogin = async () => {
