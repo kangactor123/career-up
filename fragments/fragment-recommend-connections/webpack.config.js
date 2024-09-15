@@ -9,7 +9,7 @@ const printCompilationMessage = require("./compilation.config.js");
 
 module.exports = (_, argv) => ({
   output: {
-    publicPath: "http://localhost:3004/",
+    publicPath: "http://localhost:5001/",
   },
 
   resolve: {
@@ -17,7 +17,7 @@ module.exports = (_, argv) => ({
   },
 
   devServer: {
-    port: 3004,
+    port: 5001,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
@@ -62,13 +62,11 @@ module.exports = (_, argv) => ({
 
   plugins: [
     new ModuleFederationPlugin({
-      name: "job",
+      name: "fragment_recommend_connections",
       filename: "remoteEntry.js",
       remotes: {},
       exposes: {
-        "./injector": "./src/injector.tsx",
-        "./fragment-recommend-jobs":
-          "./src/fragments/recommend-jobs-container.tsx",
+        "./container": "./src/containers/recommend-connections-container.tsx",
       },
       shared: {
         ...deps,
@@ -91,8 +89,6 @@ module.exports = (_, argv) => ({
     new HtmlWebPackPlugin({
       template: "./src/index.html",
     }),
-    new Dotenv({
-      path: "../../.env",
-    }),
+    new Dotenv(),
   ],
 });
