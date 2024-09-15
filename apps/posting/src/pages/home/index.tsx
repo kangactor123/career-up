@@ -8,17 +8,30 @@ import { Post } from "../../components/post";
 import { WritePost } from "../../components/write-post";
 import { useAuth0Client } from "@career-up/shell-router";
 
-const RecommendConnectionsContainer = React.lazy(
-  () => import("fragment_recommend_connections/container")
-);
-
-const RecommendJobsContainer = React.lazy(
-  () => import("job/fragment-recommend-jobs")
-);
+import { importRemote } from "@module-federation/utilities";
+import { ErrorBoundary } from "react-error-boundary";
 
 const PageHome: React.FC = () => {
   const auth0Client = useAuth0Client();
   const [posts, setPosts] = useState<PostType[]>([]);
+
+  const RecommendConnectionsContainer = React.lazy(() =>
+    importRemote({
+      url: "http://localhost:5001",
+      scope: "fragment_recommend_connections",
+      module: "container",
+      remoteEntryFileName: "remoteEntry.js",
+    })
+  );
+
+  const RecommendJobsContainer = React.lazy(() =>
+    importRemote({
+      url: "http://localhost:3004",
+      scope: "job",
+      module: "fragment-recommend-jobs",
+      remoteEntryFileName: "remoteEntry.js",
+    })
+  );
 
   const deletePostById = async (id: number) => {
     try {
@@ -66,12 +79,16 @@ const PageHome: React.FC = () => {
         ))}
       </div>
       <div className="posting--page-home-right">
-        <Suspense fallback="loading..">
-          <RecommendConnectionsContainer />
-        </Suspense>
-        <Suspense fallback="loading..">
-          <RecommendJobsContainer />
-        </Suspense>
+        <ErrorBoundary fallback={<div>Error..</div>}>
+          <Suspense fallback="loading..">
+            <RecommendConnectionsContainer />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary fallback={<div>Error..</div>}>
+          <Suspense fallback="loading..">
+            <RecommendJobsContainer />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );
