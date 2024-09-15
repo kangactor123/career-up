@@ -444,6 +444,9 @@ importers:
       '@career-up/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
+      '@module-federation/utilities':
+        specifier: ^3.1.10
+        version: 3.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.93.0(webpack-cli@4.10.0))
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -1633,6 +1636,24 @@ packages:
 
   '@microsoft/tsdoc@0.15.0':
     resolution: {integrity: sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==}
+
+  '@module-federation/sdk@0.6.4':
+    resolution: {integrity: sha512-yvTWk6axkL6uYSIzTFVcyXMNAg8O9TCfsyfmXTtNnXWGdymUkATUz5+g8F4BSPR3feOP4IDg3v+92V3I6hHs8w==}
+
+  '@module-federation/utilities@3.1.10':
+    resolution: {integrity: sha512-dym8or+BtNhd5rvEYHb4sgq/r6gqiJoP1JMcGWykmMWeBDIZz5n/NFF3UU/f6Sh/Rw7mMLhlHMt7hnhOiPLziQ==}
+    peerDependencies:
+      next: '*'
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+      webpack: ^5.40.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -5561,6 +5582,16 @@ snapshots:
       resolve: 1.22.8
 
   '@microsoft/tsdoc@0.15.0': {}
+
+  '@module-federation/sdk@0.6.4': {}
+
+  '@module-federation/utilities@3.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.93.0(webpack-cli@4.10.0))':
+    dependencies:
+      '@module-federation/sdk': 0.6.4
+      webpack: 5.93.0(webpack-cli@4.10.0)
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
