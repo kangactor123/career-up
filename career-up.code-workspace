@@ -17,6 +17,10 @@
       "path": "apps/network"
     },
     {
+      "name": "fragments-recommend-connections",
+      "path": "fragments/fragment-recommend-connections"
+    },
+    {
       "name": "shell-router",
       "path": "packages/shell-router"
     },
@@ -28,6 +32,7 @@
       "name": "server",
       "path": "server"
     },
+
     {
       "name": "monorepo",
       "path": "."
