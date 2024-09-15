@@ -1,4 +1,4 @@
-import "./recommend-job.styles";
+import "./recommend-job.style";
 
 import React from "react";
 import { RecommendJobWrapper } from "./recommend-job.style";
