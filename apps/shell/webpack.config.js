@@ -20,6 +20,13 @@ module.exports = (_, argv) => ({
     port: 3000,
     historyApiFallback: true,
     watchFiles: [path.resolve(__dirname, "src")],
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+        runtimeErrors: true,
+      },
+    },
     onListening: function (devServer) {
       const port = devServer.server.address().port;
 

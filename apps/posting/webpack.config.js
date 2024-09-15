@@ -19,6 +19,13 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 3001,
     historyApiFallback: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+        runtimeErrors: true,
+      },
+    },
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
       const port = devServer.server.address().port;
@@ -84,6 +91,7 @@ module.exports = (_, argv) => ({
         },
         "@career-up/ui-kit": {
           singleton: true,
+          shareScope: "v2",
         },
       },
     }),
