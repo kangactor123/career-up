@@ -1,24 +1,37 @@
 import React, { Suspense, useEffect, useState } from "react";
 
 import "./style.scss";
-import { Profile } from "../../components/profile";
 import { PostType } from "../../types";
 import { createPost, getPosts, removePost } from "../../apis";
 import { Post } from "../../components/post";
 import { WritePost } from "../../components/write-post";
 import { useAuth0Client } from "@career-up/shell-router";
 
-const RecommendConnectionsContainer = React.lazy(
-  () => import("fragment_recommend_connections/container")
-);
-
-const RecommendJobsContainer = React.lazy(
-  () => import("job/fragment-recommend-jobs")
-);
+import { importRemote } from "@module-federation/utilities";
+import { ErrorBoundary } from "react-error-boundary";
+import ProfileContainer from "../../containers/profile-containers";
 
 const PageHome: React.FC = () => {
   const auth0Client = useAuth0Client();
   const [posts, setPosts] = useState<PostType[]>([]);
+
+  const RecommendConnectionsContainer = React.lazy(() =>
+    importRemote({
+      url: process.env.REACT_APP_FRAGMENT_RECOMMEND_CONNECTIONS!,
+      scope: "fragment_recommend_connections",
+      module: "container",
+      remoteEntryFileName: "remoteEntry.js",
+    })
+  );
+
+  const RecommendJobsContainer = React.lazy(() =>
+    importRemote({
+      url: process.env.REACT_APP_MICROAPP_JOB!,
+      scope: "job",
+      module: "fragment-recommend-jobs",
+      remoteEntryFileName: "remoteEntry.js",
+    })
+  );
 
   const deletePostById = async (id: number) => {
     try {
@@ -57,7 +70,7 @@ const PageHome: React.FC = () => {
   return (
     <div className="posting--page-home">
       <div className="posting--page-home-left">
-        <Profile />
+        <ProfileContainer />
       </div>
       <div className="posting--page-home-center">
         <WritePost writePost={writePost} />
@@ -66,12 +79,16 @@ const PageHome: React.FC = () => {
         ))}
       </div>
       <div className="posting--page-home-right">
-        <Suspense fallback="loading..">
-          <RecommendConnectionsContainer />
-        </Suspense>
-        <Suspense fallback="loading..">
-          <RecommendJobsContainer />
-        </Suspense>
+        <ErrorBoundary fallback={<div>Error..</div>}>
+          <Suspense fallback="loading..">
+            <RecommendConnectionsContainer />
+          </Suspense>
+        </ErrorBoundary>
+        <ErrorBoundary fallback={<div>Error..</div>}>
+          <Suspense fallback="loading..">
+            <RecommendJobsContainer />
+          </Suspense>
+        </ErrorBoundary>
       </div>
     </div>
   );

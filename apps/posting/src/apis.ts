@@ -1,7 +1,9 @@
 import { type UserType, type PostType } from "./types";
 
+const SERVER_URL = process.env.REACT_APP_SERVER_URL!;
+
 export async function getPosts(token: string): Promise<PostType[]> {
-  const res = await fetch("http://localhost:4000/posts?_sort=id&_order=desc", {
+  const res = await fetch(`${SERVER_URL}/posts?_sort=id&_order=desc`, {
     headers: {
       Authorization: `Bearer ${token}`,
     },
@@ -15,7 +17,7 @@ export async function createPost(
   token: string,
   body: { message: string }
 ): Promise<void> {
-  await fetch("http://localhost:4000/posts", {
+  await fetch(`${SERVER_URL}/posts`, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
@@ -26,7 +28,7 @@ export async function createPost(
 }
 
 export async function removePost(token: string, id: number): Promise<void> {
-  await fetch(`http://localhost:4000/posts/${id}`, {
+  await fetch(`${SERVER_URL}/posts/${id}`, {
     method: "DELETE",
     headers: {
       Authorization: `Bearer ${token}`,
@@ -35,7 +37,7 @@ export async function removePost(token: string, id: number): Promise<void> {
 }
 
 export async function getUser(token: string): Promise<UserType> {
-  const res = await fetch("http://localhost:4000/user", {
+  const res = await fetch(`${SERVER_URL}/user`, {
     headers: { Authorization: `Bearer ${token}` },
   });
 

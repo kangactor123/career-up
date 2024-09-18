@@ -10,7 +10,7 @@ importers:
     devDependencies:
       turbo:
         specifier: ^2.0.14
-        version: 2.0.14
+        version: 2.1.2
       typescript:
         specifier: 5.2.2
         version: 5.2.2
@@ -347,12 +347,18 @@ importers:
       '@career-up/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
+      '@module-federation/utilities':
+        specifier: ^3.1.10
+        version: 3.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.93.0(webpack-cli@4.10.0))
       react:
         specifier: ^18.2.0
         version: 18.3.1
       react-dom:
         specifier: ^18.2.0
         version: 18.3.1(react@18.3.1)
+      react-error-boundary:
+        specifier: ^4.0.13
+        version: 4.0.13(react@18.3.1)
       react-router-dom:
         specifier: ^6.26.1
         version: 6.26.1(react-dom@18.3.1(react@18.3.1))(react@18.3.1)
@@ -444,6 +450,9 @@ importers:
       '@career-up/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
+      '@module-federation/utilities':
+        specifier: ^3.1.10
+        version: 3.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.93.0(webpack-cli@4.10.0))
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -529,6 +538,9 @@ importers:
       '@career-up/ui-kit':
         specifier: workspace:*
         version: link:../../packages/ui-kit
+      '@types/node':
+        specifier: ^22.5.0
+        version: 22.5.0
       react:
         specifier: ^18.2.0
         version: 18.3.1
@@ -663,6 +675,9 @@ importers:
         specifier: ^5.3.0
         version: 5.3.0(react@18.3.1)
     devDependencies:
+      '@auth0/auth0-spa-js':
+        specifier: ^2.1.3
+        version: 2.1.3
       '@eslint/js':
         specifier: ^9.9.0
         version: 9.9.0
@@ -1633,6 +1648,24 @@ packages:
 
   '@microsoft/tsdoc@0.15.0':
     resolution: {integrity: sha512-HZpPoABogPvjeJOdzCOSJsXeL/SMCBgBZMVC3X3d7YYp2gf31MfxhUoYUNwf1ERPJOnQc0wkFn9trqI6ZEdZuA==}
+
+  '@module-federation/sdk@0.6.4':
+    resolution: {integrity: sha512-yvTWk6axkL6uYSIzTFVcyXMNAg8O9TCfsyfmXTtNnXWGdymUkATUz5+g8F4BSPR3feOP4IDg3v+92V3I6hHs8w==}
+
+  '@module-federation/utilities@3.1.10':
+    resolution: {integrity: sha512-dym8or+BtNhd5rvEYHb4sgq/r6gqiJoP1JMcGWykmMWeBDIZz5n/NFF3UU/f6Sh/Rw7mMLhlHMt7hnhOiPLziQ==}
+    peerDependencies:
+      next: '*'
+      react: ^16 || ^17 || ^18
+      react-dom: ^16 || ^17 || ^18
+      webpack: ^5.40.0
+    peerDependenciesMeta:
+      next:
+        optional: true
+      react:
+        optional: true
+      react-dom:
+        optional: true
 
   '@nodelib/fs.scandir@2.1.5':
     resolution: {integrity: sha512-vq24Bq3ym5HEQm2NKCr3yXDwjc7vTsEThRDnkp2DK9p1uqLR+DHurm/NOTo0KG7HYHU7eppKZj3MyqYuMBf62g==}
@@ -3694,6 +3727,11 @@ packages:
     peerDependencies:
       react: ^18.3.1
 
+  react-error-boundary@4.0.13:
+    resolution: {integrity: sha512-b6PwbdSv8XeOSYvjt8LpgpKrZ0yGdtZokYwkwV2wlcZbxgopHX/hgPl5VgpnoVOWd868n1hktM8Qm4b+02MiLQ==}
+    peerDependencies:
+      react: '>=16.13.1'
+
   react-icons@5.3.0:
     resolution: {integrity: sha512-DnUk8aFbTyQPSkCfF8dbX6kQjXA9DktMeJqfjrg6cK9vwQVMxmcA3BfP4QoiztVmEHtwlTgLFsPuH2NskKT6eg==}
     peerDependencies:
@@ -4124,38 +4162,38 @@ packages:
   tslib@2.6.3:
     resolution: {integrity: sha512-xNvxJEOUiWPGhUuUdQgAJPKOOJfGnIyKySOc09XkKsgdUV/3E2zvwZYdejjmRgPCgcym1juLH3226yA7sEFJKQ==}
 
-  turbo-darwin-64@2.0.14:
-    resolution: {integrity: sha512-kwfDmjNwlNfvtrvT29+ZBg5n1Wvxl891bFHchMJyzMoR0HOE9N1NSNdSZb9wG3e7sYNIu4uDkNk+VBEqJW0HzQ==}
+  turbo-darwin-64@2.1.2:
+    resolution: {integrity: sha512-3TEBxHWh99h2yIzkuIigMEOXt/ItYQp0aPiJjPd1xN4oDcsKK5AxiFKPH9pdtfIBzYsY59kQhZiFj0ELnSP7Bw==}
     cpu: [x64]
     os: [darwin]
 
-  turbo-darwin-arm64@2.0.14:
-    resolution: {integrity: sha512-m3LXYEshCx3wc4ZClM6gb01KYpFmtjQ9IBF3A7ofjb6ahux3xlYZJZ3uFCLAGHuvGLuJ3htfiPbwlDPTdknqqw==}
+  turbo-darwin-arm64@2.1.2:
+    resolution: {integrity: sha512-he0miWNq2WxJzsH82jS2Z4MXpnkzn9SH8a79iPXiJkq25QREImucscM4RPasXm8wARp91pyysJMq6aasD45CeA==}
     cpu: [arm64]
     os: [darwin]
 
-  turbo-linux-64@2.0.14:
-    resolution: {integrity: sha512-7vBzCPdoTtR92SNn2JMgj1FlMmyonGmpMaQdgAB1OVYtuQ6NVGoh7/lODfaILqXjpvmFSVbpBIDrKOT6EvcprQ==}
+  turbo-linux-64@2.1.2:
+    resolution: {integrity: sha512-fKUBcc0rK8Vdqv5a/E3CSpMBLG1bzwv+Q0Q83F8fG2ZfNCNKGbcEYABdonNZkkx141Rj03cZQFCgxu3MVEGU+A==}
     cpu: [x64]
     os: [linux]
 
-  turbo-linux-arm64@2.0.14:
-    resolution: {integrity: sha512-jwH+c0bfjpBf26K/tdEFatmnYyXwGROjbr6bZmNcL8R+IkGAc/cglL+OToqJnQZTgZvH7uDGbeSyUo7IsHyjuA==}
+  turbo-linux-arm64@2.1.2:
+    resolution: {integrity: sha512-sV8Bpmm0WiuxgbhxymcC7wSsuxfBBieI98GegSwbr/bs1ANAgzCg93urIrdKdQ3/b31zZxQwcaP4FBF1wx1Qdg==}
     cpu: [arm64]
     os: [linux]
 
-  turbo-windows-64@2.0.14:
-    resolution: {integrity: sha512-w9/XwkHSzvLjmioo6cl3S1yRfI6swxsV1j1eJwtl66JM4/pn0H2rBa855R0n7hZnmI6H5ywLt/nLt6Ae8RTDmw==}
+  turbo-windows-64@2.1.2:
+    resolution: {integrity: sha512-wcmIJZI9ORT9ykHGliFE6kWRQrlH930QGSjSgWC8uFChFFuOyUlvC7ttcxuSvU9VqC7NF4C+GVAcFJQ8lTjN7g==}
     cpu: [x64]
     os: [win32]
 
-  turbo-windows-arm64@2.0.14:
-    resolution: {integrity: sha512-XaQlyYk+Rf4xS5XWCo8XCMIpssgGGy8blzLfolN6YBp4baElIWMlkLZHDbGyiFmCbNf9I9gJI64XGRG+LVyyjA==}
+  turbo-windows-arm64@2.1.2:
+    resolution: {integrity: sha512-zdnXjrhk7YO6CP+Q5wPueEvOCLH4lDa6C4rrwiakcWcPgcQGbVozJlo4uaQ6awo8HLWQEvOwu84RkWTdLAc/Hw==}
     cpu: [arm64]
     os: [win32]
 
-  turbo@2.0.14:
-    resolution: {integrity: sha512-00JjdCMD/cpsjP0Izkjcm8Oaor5yUCfDwODtaLb+WyblyadkaDEisGhy3Dbd5az9n+5iLSPiUgf+WjPbns6MRg==}
+  turbo@2.1.2:
+    resolution: {integrity: sha512-Jb0rbU4iHEVQ18An/YfakdIv9rKnd3zUfSE117EngrfWXFHo3RndVH96US3GsT8VHpwTncPePDBT2t06PaFLrw==}
     hasBin: true
 
   type-check@0.4.0:
@@ -5561,6 +5599,16 @@ snapshots:
       resolve: 1.22.8
 
   '@microsoft/tsdoc@0.15.0': {}
+
+  '@module-federation/sdk@0.6.4': {}
+
+  '@module-federation/utilities@3.1.10(react-dom@18.3.1(react@18.3.1))(react@18.3.1)(webpack@5.93.0(webpack-cli@4.10.0))':
+    dependencies:
+      '@module-federation/sdk': 0.6.4
+      webpack: 5.93.0(webpack-cli@4.10.0)
+    optionalDependencies:
+      react: 18.3.1
+      react-dom: 18.3.1(react@18.3.1)
 
   '@nodelib/fs.scandir@2.1.5':
     dependencies:
@@ -7725,6 +7773,11 @@ snapshots:
       react: 18.3.1
       scheduler: 0.23.2
 
+  react-error-boundary@4.0.13(react@18.3.1):
+    dependencies:
+      '@babel/runtime': 7.25.4
+      react: 18.3.1
+
   react-icons@5.3.0(react@18.3.1):
     dependencies:
       react: 18.3.1
@@ -8206,32 +8259,32 @@ snapshots:
 
   tslib@2.6.3: {}
 
-  turbo-darwin-64@2.0.14:
+  turbo-darwin-64@2.1.2:
     optional: true
 
-  turbo-darwin-arm64@2.0.14:
+  turbo-darwin-arm64@2.1.2:
     optional: true
 
-  turbo-linux-64@2.0.14:
+  turbo-linux-64@2.1.2:
     optional: true
 
-  turbo-linux-arm64@2.0.14:
+  turbo-linux-arm64@2.1.2:
     optional: true
 
-  turbo-windows-64@2.0.14:
+  turbo-windows-64@2.1.2:
     optional: true
 
-  turbo-windows-arm64@2.0.14:
+  turbo-windows-arm64@2.1.2:
     optional: true
 
-  turbo@2.0.14:
+  turbo@2.1.2:
     optionalDependencies:
-      turbo-darwin-64: 2.0.14
-      turbo-darwin-arm64: 2.0.14
-      turbo-linux-64: 2.0.14
-      turbo-linux-arm64: 2.0.14
-      turbo-windows-64: 2.0.14
-      turbo-windows-arm64: 2.0.14
+      turbo-darwin-64: 2.1.2
+      turbo-darwin-arm64: 2.1.2
+      turbo-linux-64: 2.1.2
+      turbo-linux-arm64: 2.1.2
+      turbo-windows-64: 2.1.2
+      turbo-windows-arm64: 2.1.2
 
   type-check@0.4.0:
     dependencies:

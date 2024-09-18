@@ -19,6 +19,13 @@ module.exports = (_, argv) => ({
   devServer: {
     port: 3001,
     historyApiFallback: true,
+    client: {
+      overlay: {
+        errors: true,
+        warnings: false,
+        runtimeErrors: true,
+      },
+    },
     watchFiles: [path.resolve(__dirname, "src")],
     onListening: function (devServer) {
       const port = devServer.server.address().port;
@@ -65,11 +72,7 @@ module.exports = (_, argv) => ({
     new ModuleFederationPlugin({
       name: "posting",
       filename: "remoteEntry.js",
-      remotes: {
-        fragment_recommend_connections:
-          "fragment_recommend_connections@http://localhost:5001/remoteEntry.js",
-        job: "job@http://localhost:3004/remoteEntry.js",
-      },
+      remotes: {},
       exposes: {
         "./injector": "./src/injector.tsx",
       },
@@ -88,6 +91,7 @@ module.exports = (_, argv) => ({
         },
         "@career-up/ui-kit": {
           singleton: true,
+          shareScope: "v2",
         },
       },
     }),
