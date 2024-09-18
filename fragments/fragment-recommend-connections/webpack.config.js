@@ -84,6 +84,9 @@ module.exports = (_, argv) => ({
         "@career-up/shell-router": {
           singleton: true,
         },
+        swr: {
+          version: deps.swr,
+        },
       },
     }),
     new HtmlWebPackPlugin({
