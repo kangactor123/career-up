@@ -9,6 +9,16 @@
 - Pnpm (Monorepo workspace)
 - React, TypeScript
 
+## Port
+
+- App shell: 3000
+- Posting: 3001
+- Edu: 3002
+- Network: 3003
+- Job: 3004
+- Server: 4000
+- Fragment/fragment-recommend-connections: 5001
+
 ### Fragment
 
 - Fragment는 feature 조각과 같기 때문에 가급적이면 기술 단위를 작게 사용하여 가져다 사용하는 측에서 부담이 적도록 개발한다.
